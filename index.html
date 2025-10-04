@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trello Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-purple-600 to-pink-400 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white/20 backdrop-blur-md shadow-lg fixed top-0 left-0 w-full z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-3">
+          <span class="text-2xl font-bold text-white">MyTrello</span>
+        </div>
+
+        <!-- Center: Links -->
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-white font-medium hover:text-yellow-300">Home</a>
+          <a href="#" class="text-white font-medium hover:text-yellow-300">Boards</a>
+          <a href="#" class="text-white font-medium hover:text-yellow-300">About</a>
+        </div>
+
+       <!-- Right: Buttons -->
+<div class="flex items-center space-x-3">
+  <a href="login.html" 
+     class="px-3 py-1 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-300">
+     Login
+  </a>
+  <a href="signup.html" 
+     class="px-3 py-1 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-300">
+     Signup
+  </a>
+</div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="pt-20 p-6"> <!-- pt-20 to push content below navbar -->
+    <h1 class="text-3xl font-bold text-white mb-6 text-center">My Trello Board</h1>
+
+    <!-- Board -->
+    <div id="board" class="flex space-x-4 overflow-x-auto">
+      
+      <!-- Example List -->
+      <div id="list-today" class="list bg-yellow-100 rounded-xl p-4 w-72 flex-shrink-0">
+        <h2 class="font-semibold mb-3">Today</h2>
+        <div class="cards space-y-2" id="cards-today"></div>
+        <button onclick="showAddCard(this)" class="add-card-btn text-sm text-gray-600 mt-2 hover:underline">+ Add a card</button>
+      </div>
+
+      <div id="list-week" class="list bg-green-100 rounded-xl p-4 w-72 flex-shrink-0">
+        <h2 class="font-semibold mb-3">This Week</h2>
+        <div class="cards space-y-2" id="cards-week"></div>
+        <button onclick="showAddCard(this)" class="add-card-btn text-sm text-gray-600 mt-2 hover:underline">+ Add a card</button>
+      </div>
+
+      <div id="list-later" class="list bg-gray-100 rounded-xl p-4 w-72 flex-shrink-0">
+        <h2 class="font-semibold mb-3">Later</h2>
+        <div class="cards space-y-2" id="cards-later"></div>
+        <button onclick="showAddCard(this)" class="add-card-btn text-sm text-gray-600 mt-2 hover:underline">+ Add a card</button>
+      </div>
+
+      <!-- Add another list button -->
+      <div id="add-list" class="bg-white/40 rounded-xl p-4 w-72 flex-shrink-0 flex items-center justify-center cursor-pointer hover:bg-white/60" onclick="showAddList()">
+        <span class="font-medium text-gray-700">+ Add another list</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

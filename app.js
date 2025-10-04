@@ -16,7 +16,7 @@ function showAddCard(button) {
       card.textContent = input.value.trim();
 
       // Make new card draggable
-      makeTaskDraggable(card);
+      TaskDrag(card);
 
       cardsContainer.appendChild(card);
       input.remove();
@@ -48,7 +48,7 @@ function showAddList() {
         <div class="cards space-y-2"></div>
         <button onclick="showAddCard(this)" class="text-sm text-gray-600 mt-2 hover:underline">+ Add a card</button>
       `;
-      makeListDroppable(newList.querySelector(".cards"));
+      ListDrop(newList.querySelector(".cards"));
     }
   });
 

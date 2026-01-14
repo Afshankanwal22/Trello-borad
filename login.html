@@ -2,45 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Trello Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MyTrello</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Background animation */
+    @keyframes moveBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    body {
+      background: linear-gradient(-45deg, #9b5de5, #f15bb5, #fee440, #00bbf9);
+      background-size: 400% 400%;
+      animation: moveBG 15s ease infinite;
+    }
+    /* Input & button hover animation */
+    input:focus {
+      transform: scale(1.02);
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+      transition: all 0.2s ease;
+    }
+    /* Floating alert */
+    .alert-fade {
+      animation: fadeInOut 2.5s forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(-10px);}
+      10% { opacity: 1; transform: translateY(0);}
+      90% { opacity: 1; transform: translateY(0);}
+      100% { opacity: 0; transform: translateY(-10px);}
+    }
+  </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+<body class="min-h-screen flex items-center justify-center">
 
-  <div class="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-10 border border-gray-200">
-    
-    <!-- Logo -->
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-blue-600 tracking-wide">Trello</h1>
-      <p class="text-gray-500 mt-2">Log in to your account</p>
-    </div>
+  <!-- Login Card -->
+  <div class="bg-white/20 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 w-full max-w-md text-white border border-white/30 hover:shadow-pink-500/50 transition-all duration-300">
+    <h1 class="text-4xl font-extrabold text-center mb-6 tracking-wider animate-pulse">✨ Welcome Back ✨</h1>
+    <p class="text-center text-white/80 mb-6 text-lg">Login to continue to <span class="font-semibold">MyTrello</span></p>
 
-    <!-- Form -->
-    <form class="space-y-6">
-      <input
-        type="email"
-        placeholder="Email address"
-        class="w-full border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-      />
+    <!-- Alert box -->
+    <div id="alert" class="hidden mb-4 text-center py-2 px-4 rounded-xl font-semibold"></div>
 
-      <input
-        type="password"
-        placeholder="Password"
-        class="w-full border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-      />
+    <form id="loginForm" class="space-y-6">
+      <!-- Email -->
+      <div class="relative">
+        <input type="email" id="email" placeholder="Email" required
+               class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/40 placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-1">
+      </div>
 
-      <button
-        class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition">
-        Log In
+      <!-- Password -->
+      <div class="relative">
+        <input type="password" id="password" placeholder="Password" required
+               class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/40 placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-1">
+        <span id="togglePassword" class="absolute right-4 top-3 cursor-pointer text-white/70 hover:text-yellow-300">Show</span>
+      </div>
+
+      <button type="submit"
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-bold shadow-lg hover:shadow-yellow-500/50 transition-all duration-200">
+        Login
       </button>
     </form>
 
-    <!-- Links -->
-    <div class="flex justify-between mt-4 text-sm text-gray-600">
-      <a href="#" class="hover:text-blue-600 hover:underline transition">Forgot password?</a>
-      <a href="signup.html" class="hover:text-blue-600 hover:underline transition">Sign Up</a>
-    </div>
-
+    <p class="mt-6 text-center text-white/80 text-lg">
+      Don't have an account? 
+      <a href="signup.html" class="text-pink-300 font-bold hover:text-pink-400 underline">Sign Up</a>
+    </p>
   </div>
 
 </body>
